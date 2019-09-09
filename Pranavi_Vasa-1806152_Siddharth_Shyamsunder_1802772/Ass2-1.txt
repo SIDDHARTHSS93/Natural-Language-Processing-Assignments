@@ -1,0 +1,119 @@
+Q1(a)
+Python 3.6.0 (v3.6.0:41df79263a11, Dec 23 2016, 08:06:12) [MSC v.1900 64 bit (AMD64)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+=============== RESTART: C:\Users\admin\Desktop\Ass2 4\Ass2.py ===============
+The Provided Grammar is:
+
+S -> NP VP
+NP -> Det Nom | PropN | NP PP
+Nom -> Adj Nom | N
+VP -> V NP | V S | VP PP
+PP -> P NP
+PropN -> 'Bill'
+Det -> 'the' | 'a' | 'an'
+N -> 'bear' | 'squirrel' | 'park' | 'river' | 'dog'
+Adj -> 'angry' | 'frightened'
+V -> 'chased' | 'saw' | 'put' | 'eats' | 'eat' | 'chase'
+P -> 'on' | 'in'
+
+
+The included grammar is: 
+S -> VP
+VP -> V
+N -> 'block'|'table'
+DT -> 'A'|'An'|'The'
+V -> 'chase'|'Put'
+Adj -> 'furry'
+PropN -> 'Bob'
+N -> 'dogs'|'dog'
+P -> 'along'
+
+Q1(b)
+Consider we have 3 Sentences:
+
+S1=" Put the block on the table"
+S2="Bob chased a bear in the park along the river"
+S3="Bill saw Bob chase the angry furry dog"
+
+For 1st Sentence: S1( "Put the block on the table" ), On Parsing we have:
+
+(S
+  (VP
+    (VP (V Put) (NP (Det the) (Nom (N block))))
+    (PP (P on) (NP (Det the) (Nom (N table))))))
+(S
+  (VP
+    (V Put)
+    (NP
+      (NP (Det the) (Nom (N block)))
+      (PP (P on) (NP (Det the) (Nom (N table)))))))
+
+There are 2     Derivations for S1( Put the block on the table )
+
+For 2nd Sentence: S2( Bob chased a bear in the park along the river ), On Parsing we have:
+
+(S
+  (NP (PropN Bob))
+  (VP
+    (V chased)
+    (NP
+      (NP
+        (NP (Det a) (Nom (N bear)))
+        (PP (P in) (NP (Det the) (Nom (N park)))))
+      (PP (P along) (NP (Det the) (Nom (N river)))))))
+(S
+  (NP (PropN Bob))
+  (VP
+    (V chased)
+    (NP
+      (NP (Det a) (Nom (N bear)))
+      (PP
+        (P in)
+        (NP
+          (NP (Det the) (Nom (N park)))
+          (PP (P along) (NP (Det the) (Nom (N river)))))))))
+(S
+  (NP (PropN Bob))
+  (VP
+    (VP
+      (VP (V chased) (NP (Det a) (Nom (N bear))))
+      (PP (P in) (NP (Det the) (Nom (N park)))))
+    (PP (P along) (NP (Det the) (Nom (N river))))))
+(S
+  (NP (PropN Bob))
+  (VP
+    (VP
+      (V chased)
+      (NP
+        (NP (Det a) (Nom (N bear)))
+        (PP (P in) (NP (Det the) (Nom (N park))))))
+    (PP (P along) (NP (Det the) (Nom (N river))))))
+(S
+  (NP (PropN Bob))
+  (VP
+    (VP (V chased) (NP (Det a) (Nom (N bear))))
+    (PP
+      (P in)
+      (NP
+        (NP (Det the) (Nom (N park)))
+        (PP (P along) (NP (Det the) (Nom (N river))))))))
+
+There are 5 Derivations for S2( Bob chased a bear in the park along the river )
+
+For 3rd Sentence: S3( Bill saw Bob chase the angry furry dog ), On Parsing we have:
+
+(S
+  (NP (PropN Bill))
+  (VP
+    (V saw)
+    (S
+      (NP (PropN Bob))
+      (VP
+        (V chase)
+        (NP
+          (Det the)
+          (Nom (Adj angry) (Nom (Adj furry) (Nom (N dog)))))))))
+
+There are 1 Derivations for S3( Bill saw Bob chase the angry furry dog )
+>>> 

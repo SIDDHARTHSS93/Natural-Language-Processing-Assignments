@@ -1,0 +1,355 @@
+﻿Q3(a) Consider we have 2 Sentences:
+
+S6="He eats pasta with some anchovies in the restaurant"
+S7="He eats pasta with a fork in the restaurant"
+
+Yes, The Sentences S6 and S7 have more than one interpretation, which are:
+
+For the 6th sentence S6( 'He eats pasta with some anchovies in the restaurant' ) using Earley Parser, we have:
+
+(S
+  (NP He)
+  (VP
+    (V eats)
+    (NP
+      (NP
+        (NP (PropN pasta))
+        (PP (P with) (NP (Det some) (Nom (N anchovies)))))
+      (PP (P in) (NP (Det the) (Nom (N restaurant)))))))
+
+In this interpretation, S takes 'He' into NP value and Divides VP into V and NP, VP takes 'eats' into V Value and further 
+divides NP into NP and PP. NP is further divided into NP and PP, and NP takes 'pasta' into PropN and PP is further divided into P and 
+NP, PP takes 'with' into P and further divides NP into Det and Nom. NP takes 'some' into Det and divides Nom into N. Nom takes 
+'anchovies' into N. PP is further divided into P and NP, PP takes 'in' into P and further divides NP into Det and Nom. NP takes 
+'the' into Det and divides Nom into N. Nom takes 'restaurant' into N.
+
+(S
+  (NP He)
+  (VP
+    (V eats)
+    (NP
+      (NP (PropN pasta))
+      (PP
+        (P with)
+        (NP
+          (NP (Det some) (Nom (N anchovies)))
+          (PP (P in) (NP (Det the) (Nom (N restaurant)))))))))
+
+In this interpretation, S takes 'He' into NP value and Divides VP into V and NP, VP takes 'eats' into V Value and further 
+divides NP into NP and PP. NP takes 'pasta' into PropN and PP is further divided into P and 
+NP, PP takes 'with' into P and further divides NP into NPand PP. NP takes 'some Det and Nom. NP takes 'some' into Det and divides 
+Nom into N. Nom takes 'anchovies' into N. PP takes 'in' into P and further divides NP into Det and Nom. NP takes 
+'the' into Det and divides Nom into N. Nom takes 'restaurant' into N.
+
+
+
+(S
+  (NP He)
+  (VP
+    (VP
+      (VP (V eats) (NP (PropN pasta)))
+      (PP (P with) (NP (Det some) (Nom (N anchovies)))))
+    (PP (P in) (NP (Det the) (Nom (N restaurant))))))
+
+In this interpretation, S takes 'He' into NP value and Divides VP into VP and PP, VP is further divided into VP and PP, and VP is 
+further subdivided into V and NP, VP takes 'eats' into V Value and NP takes 'pasta' into PropN and PP is further divided into P and 
+NP, PP takes 'with' into P and further divides NP into Det and Nom. NP takes 'some' into Det and divides Nom into N. Nom takes  
+'anchovies' into N. PP is further divided into P and NP. PP takes 'in' into P and further divides NP into Det and Nom. NP takes 
+'the' into Det and divides Nom into N. Nom takes 'restaurant' into N.
+
+
+(S
+  (NP He)
+  (VP
+    (VP
+      (V eats)
+      (NP
+        (NP (PropN pasta))
+        (PP (P with) (NP (Det some) (Nom (N anchovies))))))
+    (PP (P in) (NP (Det the) (Nom (N restaurant))))))
+
+In this interpretation, S takes 'He' into NP value and Divides VP into VP and PP, VP is further divided into V and NP. VP takes 'eats'
+into V Value and NP is further divided into NP and PP. NP takes 'pasta' into PropN and PP is further divided into P and 
+NP, PP takes 'with' into P and further divides NP into Det and Nom. NP takes 'some' into Det and divides Nom into N. Nom takes  
+'anchovies' into N. PP is further divided into P and NP. PP takes 'in' into P and further divides NP into Det and Nom. NP takes 
+'the' into Det and divides Nom into N. Nom takes 'restaurant' into N.
+
+(S
+  (NP He)
+  (VP
+    (VP (V eats) (NP (PropN pasta)))
+    (PP
+      (P with)
+      (NP
+        (NP (Det some) (Nom (N anchovies)))
+        (PP (P in) (NP (Det the) (Nom (N restaurant))))))))
+
+In this interpretation, S takes 'He' into NP value and Divides VP into VP and PP, VP is further divided into V and NP. VP takes 'eats'
+into V Value and NP takes 'pasta' into PropN. PP is further divided into P and NP, PP takes 'with' into P and further divides NP 
+into NP and PP. NP is further divided into Det and Nom. NP takes 'some' into Det and divides Nom into N. Nom takes  
+'anchovies' into N. PP is further divided into P and NP. PP takes 'in' into P and further divides NP into Det and Nom. NP takes 
+'the' into Det and divides Nom into N. Nom takes 'restaurant' into N.
+
+There are 5 Derivations to S6( 'He eats pasta with some anchovies in the restaurant' )
+
+
+For the 7th sentence S7( 'He eats pasta with a fork in the restaurant' ) using Earley Parser we have:
+
+(S
+  (NP He)
+  (VP
+    (V eats)
+    (NP
+      (NP
+        (NP (PropN pasta))
+        (PP (P with) (NP (Det a) (Nom (N fork)))))
+      (PP (P in) (NP (Det the) (Nom (N restaurant)))))))
+
+In this interpretation, S takes 'He' into NP value and Divides VP into V and NP, VP takes 'eats' into V Value and further 
+divides NP into NP and PP. NP is further divided into NP and PP, and NP takes 'pasta' into PropN and PP is further divided into P and 
+NP, PP takes 'with' into P and further divides NP into Det and Nom. NP takes 'a' into Det and divides Nom into N. Nom takes 
+'fork' into N. PP is further divided into P and NP, PP takes 'in' into P and further divides NP into Det and Nom. NP takes 
+'the' into Det and divides Nom into N. Nom takes 'restaurant' into N.
+ 
+
+(S
+  (NP He)
+  (VP
+    (V eats)
+    (NP
+      (NP (PropN pasta))
+      (PP
+        (P with)
+        (NP
+          (NP (Det a) (Nom (N fork)))
+          (PP (P in) (NP (Det the) (Nom (N restaurant)))))))))
+
+In this interpretation, S takes 'He' into NP value and Divides VP into V and NP, VP takes 'eats' into V Value and further 
+divides NP into NP and PP. NP takes 'pasta' into PropN and PP is further divided into P and 
+NP, PP takes 'with' into P and further divides NP into NPand PP. NP takes 'some Det and Nom. NP takes 'a' into Det and divides 
+Nom into N. Nom takes 'fork' into N. PP takes 'in' into P and further divides NP into Det and Nom. NP takes 
+'the' into Det and divides Nom into N. Nom takes 'restaurant' into N.
+
+
+(S
+  (NP He)
+  (VP
+    (VP
+      (VP (V eats) (NP (PropN pasta)))
+      (PP (P with) (NP (Det a) (Nom (N fork)))))
+    (PP (P in) (NP (Det the) (Nom (N restaurant))))))
+
+In this interpretation, S takes 'He' into NP value and Divides VP into VP and PP, VP is further divided into VP and PP, and VP is 
+further subdivided into V and NP, VP takes 'eats' into V Value and NP takes 'pasta' into PropN and PP is further divided into P and 
+NP, PP takes 'with' into P and further divides NP into Det and Nom. NP takes 'a' into Det and divides Nom into N. Nom takes  
+'fork' into N. PP is further divided into P and NP. PP takes 'in' into P and further divides NP into Det and Nom. NP takes 
+'the' into Det and divides Nom into N. Nom takes 'restaurant' into N.
+
+(S
+  (NP He)
+  (VP
+    (VP
+      (V eats)
+      (NP
+        (NP (PropN pasta))
+        (PP (P with) (NP (Det a) (Nom (N fork))))))
+    (PP (P in) (NP (Det the) (Nom (N restaurant))))))
+
+In this interpretation, S takes 'He' into NP value and Divides VP into VP and PP, VP is further divided into V and NP. VP takes 'eats'
+into V Value and NP is further divided into NP and PP. NP takes 'pasta' into PropN and PP is further divided into P and 
+NP, PP takes 'with' into P and further divides NP into Det and Nom. NP takes 'a' into Det and divides Nom into N. Nom takes  
+'fork' into N. PP is further divided into P and NP. PP takes 'in' into P and further divides NP into Det and Nom. NP takes 
+'the' into Det and divides Nom into N. Nom takes 'restaurant' into N.
+
+
+(S
+  (NP He)
+  (VP
+    (VP (V eats) (NP (PropN pasta)))
+    (PP
+      (P with)
+      (NP
+        (NP (Det a) (Nom (N fork)))
+        (PP (P in) (NP (Det the) (Nom (N restaurant))))))))
+
+In this interpretation, S takes 'He' into NP value and Divides VP into VP and PP, VP is further divided into V and NP. VP takes 'eats'
+into V Value and NP takes 'pasta' into PropN. PP is further divided into P and NP, PP takes 'with' into P and further divides NP 
+into NP and PP. NP is further divided into Det and Nom. NP takes 'a' into Det and divides Nom into N. Nom takes  
+'fork' into N. PP is further divided into P and NP. PP takes 'in' into P and further divides NP into Det and Nom. NP takes 
+'the' into Det and divides Nom into N. Nom takes 'restaurant' into N.
+
+There are 5 Derivations to S7( 'He eats pasta with a fork in the restaurant' )
+
+Q3(b)
+
+We have grammar:
+Grammar with 50 productions (start state = S)
+    S -> NP VP
+    NP -> Det Nom
+    NP -> PropN
+    NP -> NP PP
+    Nom -> Adj Nom
+    Nom -> N
+    VP -> V NP
+    VP -> V S
+    VP -> VP PP
+    PP -> P NP
+    PropN -> 'Bill'
+    Det -> 'the'
+    Det -> 'a'
+    Det -> 'an'
+    N -> 'bear'
+    N -> 'squirrel'
+    N -> 'park'
+    N -> 'river'
+    N -> 'dog'
+    Adj -> 'angry'
+    Adj -> 'frightened'
+    V -> 'chased'
+    V -> 'saw'
+    V -> 'put'
+    V -> 'eats'
+    V -> 'eat'
+    V -> 'chase'
+    P -> 'on'
+    P -> 'in'
+    S -> VP
+    NP -> 'He'
+    PropN -> 'pasta'
+    VP -> V
+    N -> 'block'
+    N -> 'table'
+    N -> 'anchovies'
+    N -> 'restaurant'
+    Det -> 'A'
+    Det -> 'An'
+    Det -> 'The'
+    Det -> 'some'
+    V -> 'chase'
+    V -> 'Put'
+    Adj -> 'furry'
+    PropN -> 'Bob'
+    N -> 'dogs'
+    N -> 'dog'
+    N -> 'fork'
+    P -> 'along'
+    P -> 'with'
+Warning: VP -> V NP will never be used
+Warning: VP -> V S will never be used
+Warning: VP -> VP PP will never be used
+Warning: N -> 'dog' will never be used
+Warning: V -> 'chase' will never be used
+
+
+For the 6th sentence S6( 'He eats pasta with some anchovies in the restaurant' ) using Shift Reduce Parser, we have:
+
+There are 0 Derivations to S6( 'He eats pasta with some anchovies in the restaurant' )
+
+For the 7th sentence S7( 'He eats pasta with a fork in the restaurant' ) using Shift Reduce Parser we have:
+
+There are 0 Derivations to S7( 'He eats pasta with a fork in the restaurant' )
+
+For the 6th sentence S6( 'He eats pasta with some anchovies in the restaurant' ) using Earley Parser, we have:
+
+(S
+  (NP He)
+  (VP
+    (V eats)
+    (NP
+      (NP
+        (NP (PropN pasta))
+        (PP (P with) (NP (Det some) (Nom (N anchovies)))))
+      (PP (P in) (NP (Det the) (Nom (N restaurant)))))))
+(S
+  (NP He)
+  (VP
+    (V eats)
+    (NP
+      (NP (PropN pasta))
+      (PP
+        (P with)
+        (NP
+          (NP (Det some) (Nom (N anchovies)))
+          (PP (P in) (NP (Det the) (Nom (N restaurant)))))))))
+(S
+  (NP He)
+  (VP
+    (VP
+      (VP (V eats) (NP (PropN pasta)))
+      (PP (P with) (NP (Det some) (Nom (N anchovies)))))
+    (PP (P in) (NP (Det the) (Nom (N restaurant))))))
+(S
+  (NP He)
+  (VP
+    (VP
+      (V eats)
+      (NP
+        (NP (PropN pasta))
+        (PP (P with) (NP (Det some) (Nom (N anchovies))))))
+    (PP (P in) (NP (Det the) (Nom (N restaurant))))))
+(S
+  (NP He)
+  (VP
+    (VP (V eats) (NP (PropN pasta)))
+    (PP
+      (P with)
+      (NP
+        (NP (Det some) (Nom (N anchovies)))
+        (PP (P in) (NP (Det the) (Nom (N restaurant))))))))
+There are 5 Derivations to S6( 'He eats pasta with some anchovies in the restaurant' )
+
+
+For the 7th sentence S7( 'He eats pasta with a fork in the restaurant' ) using Earley Parser we have:
+
+(S
+  (NP He)
+  (VP
+    (V eats)
+    (NP
+      (NP
+        (NP (PropN pasta))
+        (PP (P with) (NP (Det a) (Nom (N fork)))))
+      (PP (P in) (NP (Det the) (Nom (N restaurant)))))))
+(S
+  (NP He)
+  (VP
+    (V eats)
+    (NP
+      (NP (PropN pasta))
+      (PP
+        (P with)
+        (NP
+          (NP (Det a) (Nom (N fork)))
+          (PP (P in) (NP (Det the) (Nom (N restaurant)))))))))
+(S
+  (NP He)
+  (VP
+    (VP
+      (VP (V eats) (NP (PropN pasta)))
+      (PP (P with) (NP (Det a) (Nom (N fork)))))
+    (PP (P in) (NP (Det the) (Nom (N restaurant))))))
+(S
+  (NP He)
+  (VP
+    (VP
+      (V eats)
+      (NP
+        (NP (PropN pasta))
+        (PP (P with) (NP (Det a) (Nom (N fork))))))
+    (PP (P in) (NP (Det the) (Nom (N restaurant))))))
+(S
+  (NP He)
+  (VP
+    (VP (V eats) (NP (PropN pasta)))
+    (PP
+      (P with)
+      (NP
+        (NP (Det a) (Nom (N fork)))
+        (PP (P in) (NP (Det the) (Nom (N restaurant))))))))
+There are 5 Derivations to S7( 'He eats pasta with a fork in the restaurant' )
+
+From the above 2 parser results, wecan clearly say the Shift Reduce Parser detects the abiguity in the sentences. Also as we can see 
+from the Earley Chart Parser, we can notice 5 derivations for each of these sentences, and since the sentence can be interpreted
+in multiple ways, it is considered ambiguous. 
+
+Also since the Shift Reduce Parser works only on unambiguous data, we have no entries in the results using Shift Reduce Parser.  

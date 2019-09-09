@@ -1,0 +1,12 @@
+First 10 most similar pairs
+word1	word2	similarity
+felt	feel	1.0
+arrest	got	1.0
+arrest	collar	1.0
+arrest	get	1.0
+arrest	checked	1.0
+arrest	hold	1.0
+asked	needed	1.0
+go	got	1.0
+go	broke	1.0
+go	work	1.0

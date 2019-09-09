@@ -1,0 +1,88 @@
+#For Unigram Modelling
+#Get the contents of the sentence from the training datafile and store in variable contents
+#For the Unigram file, we need to have the <s> and </s> removed hence store the sentence without <s> and </s> in a variable Unigram
+#The variable wholelength will store the entire count of words in the 3 sentences including <s> and< /s>, used in computing bigram
+#The variable unigramlength will store the count of words in the 3 sentences excluding <s> and< /s>, used in computing unigram
+#We will store the values of our vocabulary file in a variable vocabcontents
+#We use an if condition to check if our unigram sentence has words outside vocabcontents, if so we will replace those words with 'UNK'
+#Also temporarily store the value of UNK to our vocabcontents
+#We will use 3 arrays, a word countarray that sees number of occurences words(taken from vocab list) in our training data.
+#upu stands for unsmoothened probability for unigrams
+#spu stands for smoothened probability for unigrams
+#Before Smoothening we have upu as the number of occurences of words(wordcountarray)/total length of words without <s> and </s>(unigramlength)
+#After Smoothening we have spu as the (number of occurences of words(wordcountarray)+1)/(total length of words without <s> and </s>(unigramlength)+length of vocabulary
+
+#For Bigram Modelling
+#for Bigrams we will include<s> and</s> into our vocabulary, hence vocab count will be added by 2as well as we consider these 2 parameters as part of sentence
+#Use python nltk.bigrams to obtain a list of Bigrams from our sentences
+#Use python nltk.bigrams to obtain a list of Bigrams from our sentences and store in variable bigramslist
+#Variable Bigrammatrix holds value of counts of words such that previous word isknown
+# Bigram Probability before smoothening(upb) is the number of occurences of a future word such that previous word in known dvided by probability of previous word known
+#Here we have Rows holding previous word and columns holding future words
+#Bigram Probability after smoothening(spb) is (the number of occurences of a future word such that previous word in known +1) dvided by (number of previous word known+ square of vocabularycount)
+
+#For Sentence Probability Modelling
+#Sentence probability is a form where we are going to read each sentence and find the probsbility of words or in case of bigrams, one word and its previous word
+#Unigram probability will be the product of probability of all values in the given sentence. In each of these probabilities, the total count of words will be compared with that of all words in the content
+
+#bigram probability will be the product of probability of all pairs of previous and new words in the given sentence. In each of these probabilities, the total count of pairs will be compared with that of all words in the content
+
+Output:
+Python 3.6.0 (v3.6.0:41df79263a11, Dec 23 2016, 08:06:12) [MSC v.1900 64 bit (AMD64)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+ RESTART: C:\Users\admin\Desktop\Assignment1\1802772\Question 5,6 &7\Three18812.py 
+19
+[5. 6. 5. 3.]
+4
+Before Smooothening we have list:
+X	P(X)
+a 	 0.263
+b 	 0.316
+c 	 0.263
+UNK 	 0.158
+After Smoothening, we have list:
+X	P(X)
+a 	 0.261
+b 	 0.304
+c 	 0.261
+UNK 	 0.174
+[('<s>', 'a'), ('a', 'b'), ('b', 'c'), ('c', '</s>'), ('</s>', '<s>'), ('<s>', 'a'), ('a', 'b'), ('b', 'b'), ('b', 'c'), ('c', 'c'), ('c', '</s>'), ('</s>', '<s>'), ('<s>', 'c'), ('c', 'b'), ('b', 'a'), ('a', '</s>'), ('</s>', '<s>'), ('<s>', 'a'), ('a', 'b'), ('b', 'c'), ('c', 'UNK'), ('UNK', '</s>'), ('</s>', '<s>'), ('<s>', 'a'), ('a', 'UNK'), ('UNK', 'UNK'), ('UNK', 'b'), ('b', '</s>')]
+[5. 5. 6. 5. 5. 3.]
+
+
+
+Before Smoothing, we have list:
+    <s> |       a |       b |       c |       </s> |       UNK |   
+_______________________________________________________________________________________________
+
+ <s> | 0.0 |    0.8 |    0.0 |    0.2 |    0.0 |    0.0 |    
+ a | 0.0 |    0.0 |    0.6 |    0.0 |    0.2 |    0.2 |    
+ b | 0.0 |    0.167 |    0.167 |    0.5 |    0.167 |    0.0 |    
+ c | 0.0 |    0.0 |    0.2 |    0.2 |    0.4 |    0.2 |    
+ </s> | 0.8 |    0.0 |    0.0 |    0.0 |    0.0 |    0.0 |    
+ UNK | 0.0 |    0.0 |    0.333 |    0.0 |    0.333 |    0.333 |    
+
+
+After Smoothing we have list:
+    <s>         a         b         c         </s>         UNK     
+_______________________________________________________________________________________________ 
+
+ <s> |   0.024     0.122     0.024     0.049     0.024     0.024     
+ a |   0.024     0.024     0.098     0.024     0.049     0.049     
+ b |   0.024     0.048     0.048     0.095     0.048     0.024     
+ c |   0.024     0.024     0.049     0.049     0.073     0.049     
+ </s> |   0.122     0.024     0.024     0.024     0.024     0.024     
+ UNK |   0.026     0.026     0.051     0.026     0.051     0.051     
+
+
+
+
+Sentence Probability of Unigram and Bigram are 
+Sentences	Unigram	Bigram
+<s> a b c </s>	0.00063 	 0.07317
+<s> a b b c c </s>	5e-05 	 0.07317
+<s> c b a </s>	0.00063 	 0.04878
+<s> a b c d </s>	0.00011 	 0.05128
+<s> a d e b </s>	7e-05 	 0.05128
+>>> 

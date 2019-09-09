@@ -1,0 +1,39 @@
+﻿#We ask User to input whether he wants to input text or URL.
+
+Getting Phone Numbers from text:
+#If choice =text we input text from user, and store the Regular Expression pattern in reg
+#phone traverses the text and finds if a pattern matching reg is found, if so, it displays the text following the pattern
+#We display contents in the phone variable
+
+Getting PhoneNumbers from URL:
+#If user wishes to enter URL, we ask user to enter URL  
+#We use urlopen to open that URL, and we decode and store the URL value in rw in html format
+#We import Beautiful Soup to extract Meaningful Data from the pattern.
+#phone traverses the text and finds if a pattern matching reg is found, if so, it displays the text following the pattern
+
+Output:
+Python 3.6.0 (v3.6.0:41df79263a11, Dec 23 2016, 08:06:12) [MSC v.1900 64 bit (AMD64)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+================== RESTART: C:\Users\admin\Desktop\Phone.py ==================
+Please let us know, if you want to search phone numbers from text or URL?text
+Please Enter a text:Write a regular expression that can nd all telephone numbers in a text. Your expression should be able to deal with dierent formats, for example +55 51 33083838, 1206 872020, 01206 872020 and 05679401945 as well as +44 5679401945 and 0044 5679401945, +55 51 330838. For full marks: include the output of a Python program that applies your regular expression to any url specied by the user, reads it and nds the telephone numbers. The output should clearly identify what the telephone number is:
+Write a regular expression that can nd all telephone numbers in a text. Your expression should be able to deal with dierent formats, for example +55 51 33083838, 1206 872020, 01206 872020 and 05679401945 as well as +44 5679401945 and 0044 5679401945, +55 51 330838. For full marks: include the output of a Python program that applies your regular expression to any url specied by the user, reads it and nds the telephone numbers. The output should clearly identify what the telephone number is:
+Match Found:  +55 51 33083838 at: 0
+Match Found:  1206 872020 at: 1
+Match Found:  01206 872020 at: 2
+Match Found:  05679401945 at: 3
+Match Found:  +44 5679401945 at: 4
+Match Found:  0044 5679401945 at: 5
+
+================== RESTART: C:\Users\admin\Desktop\Phone.py ==================
+Please let us know, if you want to search phone numbers from text or URL?URL
+Please Enter the URL in full standard format:https://www.essex.ac.uk/people/VILLA00103/aline-villavicencio
+Match Found:  1206 874414 at: 0
+Match Found:  1206 874414 at: 1
+Match Found:  1206 873333 at: 2
+
+    
+
+ 
+

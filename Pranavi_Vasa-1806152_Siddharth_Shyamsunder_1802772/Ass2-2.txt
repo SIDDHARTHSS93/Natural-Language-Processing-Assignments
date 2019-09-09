@@ -1,0 +1,239 @@
+Q2. a)
+From the below 2 sentences
+
+S4. An bear eat an squirrel
+S5. The dogs eats
+
+Sentence 4 is gramatically incorrect because:
+An cannot appear before a word that does not start with a vowel.
+considering bear as a single entity we will have to use the word eats instead of eat.
+
+Hence the grammatically correct sentence is:
+'A bear eats a squirrel.
+
+Sentence 5 is grammatically incorrect because:
+here dogs is considered as a collective noun, hence the word eat will be used instead of eats.
+
+Hence the grammatically correct sentence is:
+'The dogs eat'
+
+Q2. b)
+For the 2 Sentences we have grammar:
+Grammar with 39 productions (start state = S)
+    S -> NP VP
+    NP -> Det Nom
+    NP -> PropN
+    NP -> NP PP
+    Nom -> Adj Nom
+    Nom -> N
+    VP -> VP PP
+    VP -> V
+    VP -> V NP
+    VP -> V S
+    PP -> P NP
+    PropN -> 'Bill'
+    Det -> 'the'
+    Det -> 'a'
+    Det -> 'an'
+    N -> 'bear'
+    N -> 'squirrel'
+    N -> 'park'
+    N -> 'river'
+    N -> 'dog'
+    Adj -> 'angry'
+    Adj -> 'frightened'
+    V -> 'chased'
+    V -> 'saw'
+    V -> 'put'
+    V -> 'eats'
+    V -> 'eat'
+    V -> 'chase'
+    P -> 'on'
+    P -> 'in'
+    S -> VP
+    Det -> 'A'
+    Det -> 'An'
+    Det -> 'The'
+    V -> 'chases'
+    Adj -> 'furry'
+    N -> 'dogs'
+    N -> 'cat'
+    P -> 'along'
+
+
+The output of the 2 parsers are:
+
+Warning: VP -> VP PP will never be used
+
+
+For the 4th sentence S4( an bear eat an squirrel ) using chart parser we have:
+
+(S
+  (NP (Det an) (Nom (N bear)))
+  (VP (V eat) (NP (Det an) (Nom (N squirrel)))))
+
+
+For the 5th sentence S5( the dogs eats ) using chart parser we have:
+
+(S (NP (Det the) (Nom (N dogs))) (VP (V eats)))
+
+
+For the 4th sentence S4( an bear eat an squirrel ) using Shift Reduce Parser we have:
+
+
+
+
+For the 5th sentence S5( the dogs eats ) using Shift Reduce Parser we have:
+
+(S (NP (Det the) (Nom (N dogs))) (VP (V eats)))
+
+From the above 2 parsers, we can notice that the chart parser gives us the correct results, whereas the Shift Reduce Parser provides 
+us with a blank answer for S4. This is because Chart Parser being a Top Down Parser, has the ability of choice to decide, which grammar
+can be the optimal solution or the best fit for the next leaf node. 
+
+The Shift Reduce Parser on the other hand is a BottomUp Parser and hence, it has a Look Ahead variable that traverses through the leaf
+ nodes, and calculates every possible outcome of grammar before pointing to the next leaf in iteration, hence in this case, will spot 
+any grammar, which will never be used. 
+
+Q2(c)  
+
+Consider we have 2  correct Sentences S6 and S7 and 2 incorrect sentences S8 and S9 as below:
+
+s6="a bear chases a dog"
+s7="a dog eats a squirrel along the river"
+s8="an bear chases an cat"
+s9="an furry squirrel eats"
+
+
+
+  
+For the 6th sentence S6( a bear chases a dog )(a correct sentence) using uncorrected grammar we have:
+
+(S
+  (NP (Det a) (Nom (N bear)))
+  (VP (V chases) (NP (Det a) (Nom (N dog)))))
+
+
+For the 7th sentence S7( a dog eats a squirrel along the river ) (a correct sentence)using uncorrected grammar we have:
+
+(S
+  (NP (Det a) (Nom (N dog)))
+  (VP
+    (VP (V eats) (NP (Det a) (Nom (N squirrel))))
+    (PP (P along) (NP (Det the) (Nom (N river))))))
+(S
+  (NP (Det a) (Nom (N dog)))
+  (VP
+    (V eats)
+    (NP
+      (NP (Det a) (Nom (N squirrel)))
+      (PP (P along) (NP (Det the) (Nom (N river)))))))
+
+
+For the 8th sentence S8( an bear chases an cat )(an incorrect sentence) using uncorrected grammar we have:
+
+(S
+  (NP (Det an) (Nom (N bear)))
+  (VP (V chases) (NP (Det an) (Nom (N cat)))))
+
+
+For the 9th sentence S9( an furry squirrel eats )(an incorrect sentence) using uncorrected grammar we have:
+
+(S (NP (Det an) (Nom (Adj furry) (Nom (N squirrel)))) (VP (V eats)))
+
+After correcting grammar we have:
+Grammar with 39 productions (start state = S)
+    S -> NP VP
+    NP -> Det Nom
+    NP -> PropN
+    NP -> NP PP
+    Nom -> Adj Nom
+    Nom -> N
+    VP -> VP PP
+    VP -> V
+    VP -> V NP
+    VP -> V S
+    PP -> P NP
+    PropN -> 'Bill'
+    Det -> 'the'
+    Det -> 'a'
+    Det -> 'an'
+    N -> 'bear'
+    N -> 'squirrel'
+    N -> 'park'
+    N -> 'river'
+    N -> 'dog'
+    Adj -> 'angry'
+    Adj -> 'frightened'
+    V -> 'chased'
+    V -> 'saw'
+    V -> 'put'
+    V -> 'eats'
+    V -> 'eat'
+    V -> 'chase'
+    P -> 'on'
+    P -> 'in'
+    S -> VP
+    Det -> 'A'
+    Det -> 'An'
+    Det -> 'The'
+    V -> 'chases'
+    Adj -> 'furry'
+    N -> 'dogs'
+    N -> 'cat'
+    P -> 'along'
+
+The included grammar is: S -> VP
+Det -> 'A'
+Det1 -> 'an'|'An'
+Det2 -> 'the'|'The'
+V1 -> 'chases'|'eats'
+Adj -> 'furry'
+N -> 'dog'|'cat'
+N1 -> 'dogs'|'cats'|'elephants'|'squirrels'|'bears'
+N2 -> 'elephant'
+P -> 'along'
+Nom1 -> adj Nom1 | N1
+Nom2 -> adj Nom2 | N2
+NP -> Det2 Nom1| Det1 Nom2|Det2 Nom2|Det2 Nom
+VP ->V1 | V1 NP | V1 S
+
+
+
+
+
+For the 6th sentence S6( a bear chases a dog )(a correct sentence) using corrected grammar we have:
+
+(S
+  (NP (Det a) (Nom (N bear)))
+  (VP (V1 chases) (NP (Det a) (Nom (N dog)))))
+
+
+For the 7th sentence S7( a dog eats a squirrel along the river )(a correct sentence)using corrected grammar we have:
+
+(S
+  (NP (Det a) (Nom (N dog)))
+  (VP
+    (VP (V1 eats) (NP (Det a) (Nom (N squirrel))))
+    (PP (P along) (NP (Det2 the) (Nom (N river))))))
+(S
+  (NP (Det a) (Nom (N dog)))
+  (VP
+    (V1 eats)
+    (NP
+      (NP (Det a) (Nom (N squirrel)))
+      (PP (P along) (NP (Det2 the) (Nom (N river)))))))
+
+
+For the 8th sentence S8( an bear chases an cat )(an incorrect sentence) using corrected grammar we have:
+
+
+
+For the 9th sentence S9( an furry squirrel eats )(an incorrect sentence) using corrected grammar we have:
+
+
+
+Here it is noticed that the grammar will only give results for correct sentences, hence we have no result for the 8th and 9th Sentence, as 
+they are incorrect sentences. 
+ 
+
